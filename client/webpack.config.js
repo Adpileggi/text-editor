@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
@@ -25,7 +26,8 @@ module.exports = () => {
       new InjectManifest({
         swSrc: './src/sw.js',
         swDest: 'service-worker.js',
-      }), 
+      }),
+      new WorkboxPlugin.GenerateSW()
     ],
 
     module: {
@@ -33,6 +35,10 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
         },
         {
           test: /\.m?js$/,
