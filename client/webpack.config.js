@@ -27,7 +27,17 @@ module.exports = () => {
         swSrc: './src-sw.js',
         swDest: 'service-worker.js',
       }),
-      // new WorkboxPlugin.GenerateSW()
+      new WebpackPwaManifest({
+        name: 'Just another text editor',
+        short_name: 'JATW',
+        description: 'Its a text editor!',
+        background_color: '#ffffff',
+        icons: [
+          { src: path.resolve('./favicon.ico'),
+            sizes: [96, 128, 192, 256, 384, 512]
+        }
+        ]
+      })
     ],
 
     module: {
