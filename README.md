@@ -18,6 +18,8 @@
 
   ## Usage
 
+  ![demo](00-demo.gif)
+
   When the user opens the application, they will see an area where they can write notes or code snippets. The user can also use the application with or without an internet   connection. Also with or without browser support.
 
   [Visit the page](https://text-editor-30w0.onrender.com)
